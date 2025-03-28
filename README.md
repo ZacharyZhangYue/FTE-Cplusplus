@@ -1,10 +1,8 @@
-# Project Title
-
-Simple overview of use/purpose.
+# Simple Automatic Differentiation
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+The project contains an implementation of Automatic Differentiation for univariate function.
 
 ## Getting Started
 
