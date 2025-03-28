@@ -57,7 +57,7 @@ f(x) := 5 + x^3 - \frac{\log(g(x)}{x- 4}
 g(x) := (x^2 - 5)(4-3x)
 ```
 
-The AD results was compared with finite-difference results 
+The AD results were compared with finite-difference results 
 ```math
 f'(x) \approx \frac{f(x + e) - f(x - e)}{2 e}
 ```
