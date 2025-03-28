@@ -6,20 +6,17 @@ The project contains an implementation of Automatic Differentiation for univaria
 
 ## Getting Started
 
-### Dependencies
+### Compiling
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+This program is built and compiled with VisualStudio, but should be compatible with other compilers.
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Download the files from this repo and upzip it in your local
+* Open 'AD.sln' by VisualStudio
+* Build the solution (either in Debug or Release Mode)
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+* In VisualStudio, press CTRL + F5
 ```
 code blocks for commands
 ```
