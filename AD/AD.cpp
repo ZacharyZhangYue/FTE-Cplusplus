@@ -3,43 +3,49 @@
 
 #include "ADVariable.h"
 #include <iostream>
+#include <vector>
+
+// template test functions
+template<typename T>
+T g(const T& x) {
+    return (pow(x, 2.0) - 5) * (4 - 3 * x);
+}
+
+template<typename T>
+T f(const T& x) {
+    return 5 + pow(x, 3.0) - log(g(x)) / (x - 4);
+}
 
 
 int main()
 {
-    // Create variables
-    double value = 1.5;
+    // Create values for testing
+    std::vector<double> values = {-4.0, -3.0, 1.5, 1.6, 2.0, 3.0 };
 
-
-    try {
-        ADVariable x = make_variable(value);
-
-        ADVariable g = (pow(x, 2.0) - 5) * (4 - 3 * x);
-        ADVariable f = 5 + pow(x, 3.0) - log(g) / (x - 4);
-
-
-     
-
-        // function example
-        std::cout << "At x = " << value << ":\n";
+    for (auto& value : values) {
         
-        std::cout << f << "\n";
+        // auto-diff part
+        try {
+            ADVariable x = make_variable(value);
+            std::cout << f<ADVariable>(x) << "\n";
+        }
+        catch (const std::exception& e) {
+            std::cerr << "Error: " << e.what() << "\n";
+        }
+
+        // finite-diff for testing
+        double eps = 1e-4;
+
+        std::cout << "finitediff: " << "value: " << f<double>(value)
+            << " (deriv: " << (f<double>(value + eps) - f<double>(value - eps)) / (2.0 * eps) << ")" << "\n";
+
+        std::cout << "\n";
     }
-    catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << "\n";
-    }
 
-    //test against numerical differential
-
-    auto g_ = [](double x) {return (pow(x, 2.0) - 5) * (4 - 3 * x);};
-    auto f_ = [&](double x) {return 5 + pow(x, 3.0) - log(g_(x)) / (x - 4); };
-
-    double eps = 1e-4;
-
-
-    std::cout << "finitediff: " << "value: " << f_(value) <<" (deriv: " << (f_(value + eps) - f_(value - eps)) / (2.0 * eps) << ")" << "\n";
+    
 
     return 0;
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
