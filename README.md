@@ -14,7 +14,7 @@ This program is built and compiled with VisualStudio, but should be compatible w
 <img src="https://github.com/ZacharyZhangYue/FTE-Cplusplus/blob/FTE-Cplusplus/Images/setting.png" alt="Program Output" width="400"/>
 
 * Download the files from this repo and upzip it in your local
-* Open 'AD.sln' by VisualStudio
+* Open 'AD/AD.sln' by VisualStudio
 * Build the solution (either in Debug or Release Mode)
 
 ### Executing program
