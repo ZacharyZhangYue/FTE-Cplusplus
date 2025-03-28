@@ -69,8 +69,8 @@ ADVariable pow(const ADVariable& x, double exponent) {
 }
 
 // Output formatting
-std::ostream& operator<<(std::ostream& os, const ADVariable& x) {
-    os << x._value << " (deriv: " << x._derivative << ")";
+std::ostream& operator <<(std::ostream& os, const ADVariable& x) {
+    os << "autodiff: " << "value: " << x._value << " (deriv: " << x._derivative << ")";
     return os;
 }
 

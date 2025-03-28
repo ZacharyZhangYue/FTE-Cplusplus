@@ -6,8 +6,8 @@
 
 class ADVariable {
 private:
-    double _value;
-    double _derivative;
+    double _value; // f
+    double _derivative; // f'
 
 public:
     // Constructors

@@ -17,10 +17,13 @@ int main()
         ADVariable g = (pow(x, 2.0) - 5) * (4 - 3 * x);
         ADVariable f = 5 + pow(x, 3.0) - log(g) / (x - 4);
 
+
+     
+
         // function example
-        std::cout << "At x = 2:\n";
-        std::cout << "f(x) = " << f.value() << "\n";
-        std::cout << "f'(x) = " << f.derivative() << "\n";
+        std::cout << "At x = " << value << ":\n";
+        
+        std::cout << f << "\n";
     }
     catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << "\n";
@@ -33,9 +36,8 @@ int main()
 
     double eps = 1e-4;
 
-    std::cout << "f_(x) = " << f_(value) << "\n";
-    std::cout << "f'_(x) = " << (f_(value + eps) - f_(value - eps)) / (2.0 * eps) << "\n";
 
+    std::cout << "finitediff: " << "value: " << f_(value) <<" (deriv: " << (f_(value + eps) - f_(value - eps)) / (2.0 * eps) << ")" << "\n";
 
     return 0;
 }
